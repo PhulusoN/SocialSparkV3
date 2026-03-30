@@ -29,14 +29,17 @@ class MainActivity : ComponentActivity() {
             SocialSparkV3Theme {
                 var text by remember { mutableStateOf(value = "") }
                 var results by remember {mutableStateOf(value="")}
-                Column(){
+                Column(){  
+                 // name of the app displayed at the top of the screen
                     Text("Social Spark")
+                     // Input-field to enter time of day
                     OutlinedTextField(
                         value = text,
                         onValueChange = {text =it},
                         label = {Text("Enter Time Of Day")}
                     )
-
+                    
+                      // suggestions fot the user's input depending on the time of day 
                     Row(){
                         Button(
                             onClick = {
@@ -54,6 +57,7 @@ class MainActivity : ComponentActivity() {
                         {
                             Text("Suggest")
                         }
+                        // "Reset" button — clears both the input field and the result text
                         Button(
                             onClick = {
                                 text = ""
@@ -63,6 +67,7 @@ class MainActivity : ComponentActivity() {
                             Text("Reset")
                         }
                     }
+                    // shows suggestion to user
                     Text(results)
 
                 }
